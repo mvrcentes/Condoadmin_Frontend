@@ -1,0 +1,21 @@
+.HouseCard {
+    display: flex;  
+    flex-direction: column;
+    padding: 15px;
+    border-radius: 15px;
+    min-height: 150px;
+    max-height: 180px;
+    width: 300px;
+    gap: 25px;
+    background-color: #fff;
+}
+
+.Code {
+    font-size: 24px;
+    color: #999;
+}
+
+.Direccion {
+    font-size: 16px;
+    color: #333;
+}
