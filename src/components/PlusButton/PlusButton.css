@@ -1,0 +1,11 @@
+.plus-button {
+    border: none;
+    border-radius: 15px;
+    background-color: #ffffff;
+    width: 60px;
+    height: 60px;
+}
+
+svg{
+    color: white;
+}

@@ -50,6 +50,7 @@
     margin-top: 40px;
     margin-left: 30px;
     height: 100%;
+    align-content: center;
 }
 
 .rightSide {
@@ -65,15 +66,13 @@
     height: 100%;
 }
 
-.fondoContainer{
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-auto-rows: auto;
-    grid-gap: 10px; 
-    grid-row-gap: 5px; 
-    padding: 25px;
+.fondoContainer {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
     height: 100%;
-    width: 100%;    
+    width: 100%;
 }
 
 .fondoContainer.normal {
@@ -87,4 +86,10 @@
 .fondoContainer.row {
     flex-direction: row;
     gap: 15px;
+}
+
+.logo {
+    width: 100px;
+    height: 100px;
+    margin-left: 50px;
 }

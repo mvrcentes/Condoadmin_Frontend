@@ -4,6 +4,9 @@ import { Link } from "react-router-dom"
 //style
 import style from "./View.module.css"
 
+//assets
+import logo from "../../assets/logo.png"
+
 const ButtonMenu = ({ icon, text, onClick }) => {
     return (
         <button className={style.buttonMenu} onClick={() => onClick()}>
@@ -24,6 +27,7 @@ function View({ menuOptions, tipo, children }) {
         <div className={style.view}>
             <div className={style.menuView}>
                 <div className={style.menuViewContainer}>
+                    <img src={logo} className={style.logo}/>
                     {menuOptions.map((opcion, index) => (
                         <Link to={opcion[2]}>
                             <ButtonMenu
