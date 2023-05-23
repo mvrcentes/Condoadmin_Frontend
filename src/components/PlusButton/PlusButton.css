@@ -4,6 +4,7 @@
     background-color: #ffffff;
     width: 60px;
     height: 60px;
+    cursor: pointer;
 }
 
 svg{

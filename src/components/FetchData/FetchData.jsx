@@ -25,3 +25,17 @@ export const getServices = async () => {
         console.error({ error })
     }
 }
+
+export const addHouse = async (num_casa, direccion, condominio, cuota_mensual) => {
+    try {
+        return (await axios.post(`${server}/api/houses/`,
+            {
+                num_casa, 
+                direccion, 
+                condominio, 
+                cuota_mensual
+            })).data
+    } catch (error) {
+        console.error(error)
+    }
+}
