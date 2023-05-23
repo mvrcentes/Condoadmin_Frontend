@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react"
 
 // Data
-import { getHouses } from "../../components/FetchData/FetchData"
+import { getHouses, addHouse } from "../../components/FetchData/FetchData"
 
 // View
 import AdminView from "../../components/View/AdminView"
@@ -50,26 +50,61 @@ export const Houses = () => {
         if (search == "") {
             return (
                 houses.map((house) => (
-                <Card key={house.code} to={house.num_casa}>
-                    <h3 className={style.Code}>{house.num_casa}</h3>
-                    <p className={style.Direccion}>{house.direccion}</p>
-                </Card>
-            )))
+                    <Card key={house.code} to={house.num_casa}>
+                        <h3 className={style.Code}>{house.num_casa}</h3>
+                        <p className={style.Direccion}>{house.direccion}</p>
+                    </Card>
+                )))
         } else {
             const arrayCasasFiltradas = houses.filter(objeto => (objeto.num_casa.toString().startsWith(search)))
             return (
                 arrayCasasFiltradas.map((house) => (
-                <Card key={house.code} to={house.num_casa}>
-                    <h3 className={style.Code}>{house.num_casa}</h3>
-                    <p className={style.Direccion}>{house.direccion}</p>
-                </Card>
-            )))
-        }        
+                    <Card key={house.code} to={house.num_casa}>
+                        <h3 className={style.Code}>{house.num_casa}</h3>
+                        <p className={style.Direccion}>{house.direccion}</p>
+                    </Card>
+                )))
+        }
+    }
+
+    const valoresParaLosInputs = [
+        { type: "number", name: "num_casa", placeholder: "65789", title: "Num. Casa" },
+        { type: "text", name: "direccion", placeholder: "Calle A, 2a avenida", title: "Dirección" },
+        { type: "number", name: "cuota_mensual", placeholder: "Q 1000", title: "Cuota Mensual" },
+        { type: "number", name: "condominio", placeholder: " # 1 ", title: "Condominio" }
+    ]
+
+    const [house, setHouse] = useState({
+        num_casa: 0,
+        direccion: "",
+        condominio: 0,
+        cuota_mensual: 0,
+    })
+
+    const agregarCasa = async () => {
+        console.log("agregar doctor")
+
+        try {
+            const addedDoctor = await addHouse(house.num_casa, house.direccion, house.condominio, house.cuota_mensual);
+
+            console.log(`House added successfully: ${JSON.stringify(addedDoctor)}`);
+        } catch (error) {
+            console.error(`Error adding columnas: ${error}`);
+        }
+
     }
 
     return (
         <AdminView>
-            <Header search={search} useSearch={useSearch}/>
+            <Header
+                search={search}
+                useSearch={useSearch}
+                valoresParaLosInputs={valoresParaLosInputs}
+                columnas={house}
+                setColumnas={setHouse}
+                funcionAgregadora={agregarCasa}
+                title={"Añadir casa"}
+            />
             <div className={container}>
                 {isLoading ? (
                     <p>Loading...</p>

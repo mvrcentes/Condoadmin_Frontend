@@ -1,4 +1,4 @@
-import "./ModalAddHouse.css"
+import "./ModalAdd.css"
 
 const ModalAddHouse = ({ modal, handleClose, children, onClick }) => {
     return (
