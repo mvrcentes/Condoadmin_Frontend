@@ -5,6 +5,8 @@ import { Routes, Route } from "react-router-dom"
 import { Services } from "./pages/Admin/Services"
 import { Houses } from "./pages/Admin/Houses"
 import { HouseDetails } from "./pages/Admin/HouseDetails"
+import { Announcement } from "./pages/Admin/Announcement"
+import { Complaint } from "./pages/Admin/Complaint"
 
 import "./App.css"
 
@@ -15,6 +17,8 @@ function App() {
                 <Route path="/admin/services" element={<Services />} />
                 <Route path="/admin/houses" element={<Houses />} />
                 <Route path="/admin/house/:id" element={<HouseDetails />} />
+                <Route path="/admin/announce" element={<Announcement />} />
+                <Route path="/admin/complaints" element={<Complaint />} />
             </Routes>
         </div>
     )
