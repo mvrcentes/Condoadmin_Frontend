@@ -48,10 +48,10 @@ export const HouseDetails = () => {
             return (
                 data.map((info) => (
                         <Card key={info.code}>
-                            <h3>{info.nombre}</h3>
-                            <p>CUI: {info.cui}</p>
-                            <p>Tel: {info.telefono}</p>
-                            <p>Mail: {info.correo}</p>
+                            <h3 className={style.resName}>{info.nombre}</h3>
+                            <p className={style.CUI}>CUI: {info.cui}</p>
+                            <p className={style.phoneNum}>Tel: {info.telefono}</p>
+                            <p className={style.mail}>Mail: {info.correo}</p>
                         </Card>
                 )))
         } else {
@@ -59,10 +59,10 @@ export const HouseDetails = () => {
             return (
                 arrayResidentesFiltrados.map((info) => (
                     <Card key={info.code}>
-                            <h3>{info.nombre}</h3>
-                            <p>CUI: {info.cui}</p>
-                            <p>Tel: {info.telefono}</p>
-                            <p>Mail: {info.correo}</p>
+                            <h3 className={style.resName}>{info.nombre}</h3>
+                            <p className={style.CUI}>CUI: {info.cui}</p>
+                            <p className={style.phoneNum}>Tel: {info.telefono}</p>
+                            <p className={style.mail}>Mail: {info.correo}</p>
                         </Card>
                 )))
         }

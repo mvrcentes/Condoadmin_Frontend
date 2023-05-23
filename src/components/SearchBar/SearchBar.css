@@ -2,7 +2,7 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    background: var(--main-color);
+    background: #f2f2f2;
     border-radius: 15px;
     padding-left: 16px;
     width: 300px;
@@ -11,7 +11,7 @@
 }
 
 .searchBar-input:hover {
-    background-color: #f2f2f2; /* Cambia el color de fondo al hacer hover */
+    background-color: #ffffff; /* Cambia el color de fondo al hacer hover */
     transform: scale(1.05); /* Hace que el input se agrande un poco al hacer hover */
 }
 

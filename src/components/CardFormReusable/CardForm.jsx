@@ -9,14 +9,14 @@ const CardForm = ({ onChange, arrayDatosInput, titulo }) => {
     return (
         <div className="card-form">
             {/* <div className="title">{arrayDatos.title}</div> */}
-            <div className="title}"> {titulo} </div>
+            <div className="title"> {titulo} </div>
             {arrayDatosInput.map((arrayDatos) => (
                 <MiniCard title={arrayDatos.title} className="MiniCard">
                     <input
                         type={arrayDatos.type}
                         name={arrayDatos.name}
                         placeholder={arrayDatos.placeholder}
-                        className="doctor-input-form"
+                        className="input-form"
                         onChange={onChange}
                     />
                 </MiniCard>
