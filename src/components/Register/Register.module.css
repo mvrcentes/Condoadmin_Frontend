@@ -1,0 +1,27 @@
+.Register {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    height: 40px;
+    width: 100%;
+    padding: 20px;
+    background-color: white;
+    border-bottom: 1px solid #e6e6e6;
+}
+
+.Title {
+    width: 300px;
+}
+
+.User {
+    width: 100px;
+}
+
+.Date {
+    width: 100px;
+}
+
+.Upvotes {
+    width: 100px;
+}
