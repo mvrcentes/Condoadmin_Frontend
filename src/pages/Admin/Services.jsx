@@ -5,9 +5,11 @@ import AdminView from "../../components/View/AdminView"
 
 // Components
 import { Card } from "../../components/Card/Card"
+import { Header } from "../../components/Header/Header"
 
 // Style
 import style from "../../components/Card/Card.module.css"
+import { servicesContainer } from "./Services.module.css"
 
 // Data
 import { getServices } from "../../components/FetchData/FetchData"
@@ -33,6 +35,8 @@ export const Services = () => {
     }, [])
     return (
         <AdminView>
+            <Header/>
+            <div className={servicesContainer}>
             {isLoading ? (
                 <p>Loading...</p>
             ) : (
@@ -45,6 +49,7 @@ export const Services = () => {
                     </Card>
                 ))
             )}
+            </div>
         </AdminView>
     )
 }

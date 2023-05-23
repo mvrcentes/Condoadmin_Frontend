@@ -51,7 +51,7 @@ export const Houses = () => {
             return (
                 houses.map((house) => (
                     <Card key={house.code} to={house.num_casa}>
-                        <h3 className={style.Code}>{house.num_casa}</h3>
+                        <h3 className={style.Code}>{`Casa # ${house.num_casa}`}</h3>
                         <p className={style.Direccion}>{house.direccion}</p>
                     </Card>
                 )))
@@ -60,7 +60,7 @@ export const Houses = () => {
             return (
                 arrayCasasFiltradas.map((house) => (
                     <Card key={house.code} to={house.num_casa}>
-                        <h3 className={style.Code}>{house.num_casa}</h3>
+                        <h3 className={style.Code}>{`Casa # ${house.num_casa}`}</h3>
                         <p className={style.Direccion}>{house.direccion}</p>
                     </Card>
                 )))

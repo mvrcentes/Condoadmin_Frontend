@@ -1,12 +1,15 @@
 .plus-button {
     border: none;
     border-radius: 15px;
-    background-color: #ffffff;
+    background-color: #f2f2f2;
     width: 60px;
     height: 60px;
     cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Agrega una transición suave para ambos efectos */
+    margin-left: 15px;
 }
 
-svg{
-    color: white;
+.plus-button:hover {
+    background-color: #ffffff; /* Cambia el color de fondo al hacer hover */
+    transform: scale(1.1); /* Hace que el botón se agrande un poco al hacer hover */
 }

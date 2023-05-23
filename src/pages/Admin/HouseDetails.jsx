@@ -8,10 +8,9 @@ import { getResidentsByHouseID, addResident } from "../../components/FetchData/F
 import AdminView from "../../components/View/AdminView"
 
 // Components
-import style from "../../components/Card/Card.module.css"
+import style from "./HouseDetails.module.css"
 import { Card } from "../../components/Card/Card"
 import { Header } from "../../components/Header/Header"
-import { container } from "./Houses.module.css"
 
 
 export const HouseDetails = () => {
@@ -48,17 +47,15 @@ export const HouseDetails = () => {
         if (search == "") {
             return (
                 data.map((info) => (
-                    <div className={container}>
                         <Card key={info.code}>
                             <h3>{info.nombre}</h3>
                             <p>CUI: {info.cui}</p>
                             <p>Tel: {info.telefono}</p>
                             <p>Mail: {info.correo}</p>
                         </Card>
-                    </div>
                 )))
         } else {
-            const arrayResidentesFiltrados = data.filter(objeto => (objeto.nombre.startsWith(search)))
+            const arrayResidentesFiltrados = data.filter(objeto => objeto.nombre.toLowerCase().startsWith(search.toLowerCase()));
             return (
                 arrayResidentesFiltrados.map((info) => (
                     <Card key={info.code}>
@@ -113,9 +110,9 @@ export const HouseDetails = () => {
                 setColumnas={setResidente}
                 funcionAgregadora={agregarResidente}
                 title={"Añadir residente"}/>
-
+            <div className={style.residentsContainer}>
                 {generateResidentCards()}
-
+            </div>
         </AdminView>
     )
 }

@@ -1,11 +1,15 @@
 :root{
-  --main-color: #ffffff;
-  --second-color: #F4F5FE;
-  --third-color: #A8DFF1;
-  --fourth-color: #3D7C98;
-  --fifth-color: #d3d6f5;
+  /* --main-color: #ffffff;
+  --second-color: #043565;
+  --third-color: #cfc0bd;
+  --fourth-color: #726e60;
+  --fifth-color: #000000; */
+  --main-color: rgb(255, 255, 255);
+  --second-color: rgba(4, 53, 101, 0.5);
+  --third-color: rgb(207, 192, 189);
+  --fourth-color: rgb(114, 110, 96);
+  --fifth-color: rgb(0, 0, 0);
   
-
   --main-hospital-color: #FFB7B7;
   --second-hospital-color: #ED461D;
 
