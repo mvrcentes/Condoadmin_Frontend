@@ -9,7 +9,7 @@ export const Card = ({ children, to }) => {
         <>
             {to ? (
                 <Link
-                    to={'/admin/house/' + to}
+                    to={'/admin/' + to}
                     style={{ textDecoration: "none" }}
                     className={style.HouseCard}>
                     {children}

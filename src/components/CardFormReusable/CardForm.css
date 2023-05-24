@@ -1,0 +1,28 @@
+.card-form {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--main-color);
+    border-radius: 15px;
+    overflow: hidden;
+    min-width: 350px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.25);
+}
+
+.title {
+    font-size: 24px;
+    padding-top: 25px;
+    padding-left: 25px;
+}
+
+.input-form {
+    background-color: #f2f2f2;
+    color: black;
+    padding: 5px 5px 5px 15px;
+    height: 50px;
+    width: 100%;
+    font-size: 1em;
+}
+
+.MiniCard {
+    width: 100%;
+}

@@ -5,6 +5,7 @@ import { Routes, Route } from "react-router-dom"
 import { Services } from "./pages/Admin/Services"
 import { Houses } from "./pages/Admin/Houses"
 import { HouseDetails } from "./pages/Admin/HouseDetails"
+import { ServiceDetails } from "./pages/Admin/ServiceDetails"
 
 import "./App.css"
 
@@ -15,6 +16,7 @@ function App() {
                 <Route path="/admin/services" element={<Services />} />
                 <Route path="/admin/houses" element={<Houses />} />
                 <Route path="/admin/house/:id" element={<HouseDetails />} />
+                <Route path="/admin/services/:id" element={<ServiceDetails />} />
             </Routes>
         </div>
     )

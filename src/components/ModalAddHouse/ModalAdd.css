@@ -1,0 +1,67 @@
+.modalll {
+    width: 100vw;
+    max-height: 100vh;
+    overflow-y: auto;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: fixed;
+}
+.overlay {
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: fixed;
+    background: rgba(49,49,49,0.5);
+}
+.modalll-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    line-height: 1.4;
+    font-weight: bold;
+    background: rgba(4, 53, 101, 1);
+    padding: 28px;
+    border-radius: 3px;
+    max-width: 600px;
+    min-width: 300px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+}
+.modalll h2 {
+    color: #fff;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+.modalll p {
+    color: #fff;
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+.button-container {
+    display: flex;
+}
+.close-modal{
+    background-color: #f2f2f2;
+    border: 2px solid #000000;
+    color: var(--fifth-color);
+    font-size: 18px;
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 5px;
+    margin-top: 15px;
+    cursor: pointer;
+}
+.close-modal:hover {
+    background-color: var(--main-color);
+    transform: scale(1.05);
+}
