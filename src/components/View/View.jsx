@@ -47,7 +47,7 @@ function View({ menuOptions, tipo, children }) {
             </div>
             <div className={style.rightSide}>
                 <div className={style.fondo}>
-                    <div className={classes}>{children}</div>
+                    {children}
                 </div>
             </div>
         </div>

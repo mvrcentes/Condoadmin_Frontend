@@ -1,0 +1,46 @@
+.Post {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 15px;
+    width: 515px;
+    background-color: aquamarine;
+}
+
+.Input {
+    font-size: 15px;
+}
+
+.InputBody {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    min-height: 200px;
+}
+
+.Buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.Button { 
+    font-size: 15px;    
+    padding: 5px 20px;
+    border-radius: 15px;
+    border: 1px solid black;
+}
+
+.Send {
+    display: flex;
+    justify-content: flex-end;
+    font-size: 15px;
+    
+}
+
+.Send button {
+    font-size: 15px;
+    padding: 5px 20px;
+    border-radius: 15px;
+    border: 1px solid black;
+}
