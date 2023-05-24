@@ -50,7 +50,7 @@ export const Houses = () => {
         if (search == "") {
             return (
                 houses.map((house) => (
-                    <Card key={house.code} to={house.num_casa}>
+                    <Card key={house.code} to={"house/"+house.num_casa}>
                         <h3 className={style.Code}>{`Casa # ${house.num_casa}`}</h3>
                         <p className={style.Direccion}>{house.direccion}</p>
                     </Card>
@@ -59,7 +59,7 @@ export const Houses = () => {
             const arrayCasasFiltradas = houses.filter(objeto => (objeto.num_casa.toString().startsWith(search)))
             return (
                 arrayCasasFiltradas.map((house) => (
-                    <Card key={house.code} to={house.num_casa}>
+                    <Card key={house.code} to={"house/"+house.num_casa}>
                         <h3 className={style.Code}>{`Casa # ${house.num_casa}`}</h3>
                         <p className={style.Direccion}>{house.direccion}</p>
                     </Card>
