@@ -80,6 +80,7 @@
     /* border-radius: 20px; */
     padding: 5px 10px 5px 5px;
     height: 100%;
+    /* overflow-y: auto; */
 }
 
 .fondoContainer {
@@ -87,7 +88,7 @@
     justify-content: flex-start;
     align-items: flex-start;
     flex-direction: column;
-    height: 100%;
+    height: 100vh;
     width: 100%;
 }
 
