@@ -1,0 +1,36 @@
+.searchBar-input {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background: #f2f2f2;
+    border-radius: 15px;
+    padding-left: 16px;
+    width: 300px;
+    height: 60px;
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Agrega una transición suave para el cambio de color de fondo y la escala */
+}
+
+.searchBar-input:hover {
+    background-color: #ffffff; /* Cambia el color de fondo al hacer hover */
+    transform: scale(1.05); /* Hace que el input se agrande un poco al hacer hover */
+}
+
+.input-Searchbar {
+    border: none;
+    width: 100%;
+    background-color: transparent;
+    opacity: 1;
+    font-size: 1em;
+    transition: opacity 0.3s ease; /* Agrega una transición suave para la opacidad */
+}
+
+.input-Searchbar:focus {
+    outline: none;
+    opacity: 0.8; /* Reduce ligeramente la opacidad cuando se selecciona el input */
+}
+
+.icon {
+    width: 25px;
+    height: 40px;
+    margin-right: 15px;
+}

@@ -1,0 +1,33 @@
+.residentsContainer {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: auto;
+    grid-gap: 25px; 
+    grid-row-gap: 25px; 
+    padding: 25px;
+    /* height: 100%; */
+    /* width: 100%; */
+    overflow-y: auto;   
+    margin-left: 25px; 
+}
+
+.fecha {
+    font-size: 24px;
+    color: #333;
+    font-weight: bold;
+}
+
+.desc {
+    font-size: 16px;
+    color: #999;
+}
+
+.estado {
+    font-size: 16px;
+    color: #999;
+}
+
+.costo {
+    font-size: 16px;
+    color: #999;
+}
