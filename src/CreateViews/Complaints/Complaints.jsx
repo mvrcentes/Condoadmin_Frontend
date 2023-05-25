@@ -49,9 +49,11 @@ export const Complaints = () => {
 
     return (
         <div className={style.Complaints}>
+            <Register props={{titulo: "Titulo", residente: "Residente", fecha: "Fecha", upvotes: "Upvotes"}} />
             {isLoading ? (
                 <h1>Loading...</h1>
-            ) : (
+            ) : 
+            (
                 complaints.map((complaint, index) => <Register key={index} props={complaint} />)
             )}
         </div>

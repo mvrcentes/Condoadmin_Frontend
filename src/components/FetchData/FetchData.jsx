@@ -116,3 +116,12 @@ export const getComplaints = async () => {
         console.error(error)
     }
 }
+
+export const getAnnouncements = async () => {
+    try {
+        return (await axios.get(`${server}/api/announcements`)).data
+    } catch (error) {
+        console.error(error)
+    }
+}
+
