@@ -125,3 +125,12 @@ export const getAnnouncements = async () => {
     }
 }
 
+export const getAnnouncementByID = async (id) => {
+    console.log({ id })
+    try {
+        return (await axios.get(`${server}/api/announcements/${id}`)).data
+    } catch (error) {
+        console.error(error)
+    }
+}
+
