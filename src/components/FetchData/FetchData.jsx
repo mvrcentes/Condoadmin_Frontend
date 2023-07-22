@@ -117,6 +117,14 @@ export const getComplaints = async () => {
     }
 }
 
+export const getComplaintsByID = async (id) => {
+  try {
+      return (await axios.get(`${server}/api/complaints/${id}`)).data
+  } catch (error) {
+      console.error(error)
+  }
+}
+
 export const getAnnouncements = async () => {
     try {
         return (await axios.get(`${server}/api/announcements`)).data
