@@ -11,6 +11,7 @@ import { Announcement } from "./pages/Admin/Announcement"
 import { AnnoucementByID } from "./pages/Admin/AnnoucementByID"
 
 import { Complaint } from "./pages/Admin/Complaint"
+import { ComplaintDetails } from "./pages/Admin/ComplaintDetails"
 
 
 import "./App.css"
@@ -25,6 +26,7 @@ function App() {
                 <Route path="/admin/announce" element={<Announcement />} />
                 <Route path="/admin/announce/:id" element={<AnnoucementByID />} />
                 <Route path="/admin/complaints" element={<Complaint />} />
+                <Route path="/admin/complaints/:id" element={<ComplaintDetails />} />
                 <Route path="/admin/services/:id" element={<ServiceDetails />} />
 
             </Routes>
