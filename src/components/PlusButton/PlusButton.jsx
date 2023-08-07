@@ -1,6 +1,7 @@
 import Plus from "../../assets/Plus.svg"
 
 import "./PlusButton.css"
+import React from 'react'
 
 const PlusButton = ({ onClick }) => {
     return (

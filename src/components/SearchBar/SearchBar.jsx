@@ -3,6 +3,7 @@ import search_icon from "../../assets/search_icon.svg";
 
 //style
 import "./SearchBar.css";
+import React from "react";
 
 const SearchBar = ({value, onChange}) => {
     return (

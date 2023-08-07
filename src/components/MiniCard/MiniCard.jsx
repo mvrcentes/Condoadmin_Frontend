@@ -1,4 +1,5 @@
-import "./MiniCard.css"
+import "./MiniCard.css";
+import React from 'react';
 
 const MiniCard = ({ title, children }) => {
     return (
