@@ -1,4 +1,5 @@
 import "./ModalAdd.css"
+import React from 'react'
 
 const ModalAddHouse = ({ modal, handleClose, children, onClick }) => {
     return (
