@@ -8,14 +8,14 @@ import style from "./View.module.css"
 import logo from "../../assets/logo.png"
 
 const ButtonMenu = ({ icon, text, onClick }) => {
-    return (
-        <button className={style.buttonMenu} onClick={() => onClick()}>
-            <div className={style.buttonMenuContainer}>
-                <img className={style.icon} src={icon}></img>
-                <div className={style.text}>{text}</div>
-            </div>
-        </button>
-    )
+  return (
+      <button className={style.buttonMenu} onClick={() => onClick()}>
+          <div className={style.buttonMenuContainer}>
+              <img className={style.icon} src={icon}></img>
+              <div className={`${style.text} ${style.menuOptionText}`}>{text}</div>
+          </div>
+      </button>
+  )
 }
 
 function View({ menuOptions, tipo, children }) {

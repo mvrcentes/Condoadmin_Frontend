@@ -107,7 +107,9 @@ export const ServiceDetails = () => {
                 columnas={mantenimiento}
                 setColumnas={setMantenimiento}
                 funcionAgregadora={agregarMantenimiento}
-                title={"Añadir mantenimiento"}/>
+                title={"Añadir mantenimiento"}
+                plusButtonVisible={true}
+                />
             <div className={style.residentsContainer}>
                 {generateServiceCards()}
             </div>

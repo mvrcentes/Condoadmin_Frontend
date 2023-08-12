@@ -5,15 +5,15 @@ import { useParams } from "react-router-dom"
 import { getResidentsByHouseID, addResident } from "../../components/FetchData/FetchData"
 
 // View
-import AdminView from "../../components/View/AdminView"
+import ResidentView from "../../components/View/ResidentView"
 
 // Components
-import style from "./HouseDetails.module.css"
+import style from "./ResidentHouseDetails.module.css"
 import { Card } from "../../components/Card/Card"
 import { Header } from "../../components/Header/Header"
 
 
-export const HouseDetails = () => {
+export const ResidentHouseDetails = () => {
     const { id } = useParams()
     const [data, setData] = useState([])
     const [isLoading, setIsLoading] = useState(true)
@@ -101,7 +101,7 @@ export const HouseDetails = () => {
     }
 
     return (
-        <AdminView>
+        <ResidentView>
             <Header 
                 search={search} 
                 useSearch={useSearch} 
@@ -110,10 +110,10 @@ export const HouseDetails = () => {
                 setColumnas={setResidente}
                 funcionAgregadora={agregarResidente}
                 title={"Añadir residente"}
-                plusButtonVisible={true}/>
+                plusButtonVisible={false}/>
             <div className={style.residentsContainer}>
                 {generateResidentCards()}
             </div>
-        </AdminView>
+        </ResidentView>
     )
 }
