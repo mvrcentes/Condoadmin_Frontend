@@ -1,5 +1,5 @@
 import MiniCard from "../MiniCard/MiniCard"
-
+import React from 'react'
 import "./CardForm.css"
 
 const CardForm = ({ onChange, arrayDatosInput, titulo }) => {

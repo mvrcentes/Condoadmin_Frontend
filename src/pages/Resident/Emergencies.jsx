@@ -15,7 +15,13 @@ import Fab from '@mui/material/Fab';
 
 import Modal from '@mui/material/Modal';
 import Box from '@mui/material/Box';
+import Card from '@mui/material/Card';
+
+import CardActions from '@mui/material/CardActions';
+import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
+
+
 
 function BasicModal() {
 
@@ -23,15 +29,54 @@ function BasicModal() {
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
-// garita
-// seguridad
-// mantenimiento
-// 
+  // garita
+  // seguridad
+  // mantenimiento
+  // 
 
+  const card = (garita, encargado, numero) => (
+    <React.Fragment>
+
+      <CardContent align="center">
+
+        <Typography variant="h4" component="div">
+          Garita {garita}
+        </Typography>
+        {/* <Typography sx={{ mb: 1.5 }} color="text.secondary">
+          adjective
+        </Typography> */}
+        <Typography variant="body" align="center" >
+          Encargado: {encargado}
+          <br />
+          {'Numero: ' + numero}
+          <br />
+        </Typography>
+        <Button size="medium">Llamar al {numero}</Button>
+
+      </CardContent>
+
+    </React.Fragment>
+  );
 
   return (
     <div>
-      <Button variant="contained" onClick={handleOpen}>Open modal</Button>
+
+      <div className={style.tarjetas}>
+        <Box sx={{ minWidth: 275 }}>
+          <Card variant="outlined">{card("Miraflores", "Jorge Lujan", "2400 - 3000")}</Card>
+        </Box>
+
+        <Box sx={{ minWidth: 275 }}>
+          <Card variant="outlined">{card("Tulipanes", "Byron Aldana", "2600 - 2000")}</Card>
+        </Box>
+
+        <Box sx={{ minWidth: 275 }}>
+          <Card variant="outlined">{card("Orquideas", "Edwin Castellanos", "2444 - 4000")}</Card>
+        </Box>
+
+        <Button variant="contained" onClick={handleOpen}>Agendar cita</Button>
+      </div>
+
       <Modal
         open={open}
         onClose={handleClose}
@@ -42,19 +87,8 @@ function BasicModal() {
           <div className={style.content}>
             <h1 className={style.title}>AGENDAR CITA</h1>
             <LocalizationProvider dateAdapter={AdapterDayjs}>
-              <DatePicker label="Basic date picker" />
-              <StaticTimePicker></StaticTimePicker>
-              <DatePicker label="Basic date picker" />
-              <DatePicker label="Basic date picker" />
-              <DatePicker label="Basic date picker" />
-              <DatePicker label="Basic date picker" />
-              <DatePicker label="Basic date picker" />
-              <DatePicker label="Basic date picker" />
-              <DatePicker label="Basic date picker" />
-              <DatePicker label="Basic date picker" />
-              <DatePicker label="Basic date picker" />
-              <DatePicker label="Basic date picker" />
-
+              <DatePicker disablePast label="Basic date picker" />
+              <StaticTimePicker ></StaticTimePicker>
             </LocalizationProvider>
           </div>
         </div>

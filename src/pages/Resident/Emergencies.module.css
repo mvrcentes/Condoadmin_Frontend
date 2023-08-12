@@ -4,23 +4,31 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  max-width: 80%; /* Cambia el valor según tus necesidades */
-  max-height: 80vh; /* Cambia el valor según tus necesidades */
-  overflow-y: auto; /* Habilita el desplazamiento vertical */
-  border: 3px solid red;
+  max-width: 80%;
+  /* Cambia el valor según tus necesidades */
+  max-height: 80vh;
+  /* Cambia el valor según tus necesidades */
+  overflow-y: auto;
+  /* Habilita el desplazamiento vertical */
+  /* border: 3px solid red; */
 
   display: flex;
-  flex-direction: column; /* Cambia la dirección a columna */
-  align-items: center; /* Centra horizontalmente */
+  flex-direction: column;
+  /* Cambia la dirección a columna */
+  align-items: center;
+  /* Centra horizontalmente */
 }
 
 .content {
   display: flex;
-  flex-direction: column; /* Cambia la dirección a columna */
-  gap: 10px; /* Agrega un espacio entre los elementos */
-  padding: 20px; /* Agrega un margen para separar del borde */
+  flex-direction: column;
+  /* Cambia la dirección a columna */
+  gap: 10px;
+  /* Agrega un espacio entre los elementos */
+  padding: 20px;
+  /* Agrega un margen para separar del borde */
   margin: 10px;
-  border: 2px solid blue;
+  /* border: 2px solid blue; */
 }
 
 .title {
@@ -28,4 +36,22 @@
   font-weight: bold;
   text-align: center;
   padding: 5px;
+}
+
+.tarjetas {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Tres columnas */
+  gap: 20px; /* Espacio entre las tarjetas */
+  margin-top: 20px;
+}
+
+.emptyColumn {
+  grid-column: 1; /* Ocupa la primera columna */
+}
+
+.centerContent {
+  grid-column: 2; /* Ocupa la segunda columna */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }

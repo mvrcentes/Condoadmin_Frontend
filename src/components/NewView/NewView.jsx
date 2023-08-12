@@ -3,6 +3,8 @@ import styles from "./NewView.module.css"
 import PropTypes from "prop-types"
 import arrow from "../../assets/arrow.svg"
 
+import React from "react"
+
 import { getAnnouncementByID } from "../FetchData/FetchData"
 import { useParams } from "react-router-dom"
 
