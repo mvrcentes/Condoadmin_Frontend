@@ -104,6 +104,7 @@ export const Houses = () => {
                 setColumnas={setHouse}
                 funcionAgregadora={agregarCasa}
                 title={"Añadir casa"}
+                plusButtonVisible={true}
             />
             <div className={container}>
                 {isLoading ? (

@@ -1,0 +1,31 @@
+.container {
+  background-color: azure;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 80%; /* Cambia el valor según tus necesidades */
+  max-height: 80vh; /* Cambia el valor según tus necesidades */
+  overflow-y: auto; /* Habilita el desplazamiento vertical */
+  border: 3px solid red;
+
+  display: flex;
+  flex-direction: column; /* Cambia la dirección a columna */
+  align-items: center; /* Centra horizontalmente */
+}
+
+.content {
+  display: flex;
+  flex-direction: column; /* Cambia la dirección a columna */
+  gap: 10px; /* Agrega un espacio entre los elementos */
+  padding: 20px; /* Agrega un margen para separar del borde */
+  margin: 10px;
+  border: 2px solid blue;
+}
+
+.title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: center;
+  padding: 5px;
+}

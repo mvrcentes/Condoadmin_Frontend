@@ -103,6 +103,7 @@ export const Services = () => {
                 columnas={service}
                 setColumnas={setService}
                 funcionAgregadora={agregarServicio}
+                plusButtonVisible={true}
                 title={"Añadir servicio"}
             />
             <div className={servicesContainer}>

@@ -1,20 +1,16 @@
 import React from "react"
 
-import AdminView from "../../components/View/AdminView"
+import ResidentView from "../../components/View/ResidentView"
 
 //components
 import { Annoucements } from "../../CreateViews/Annoucements/Annoucements"
 import { Header } from "../../components/Header/Header"
 
-
-
-export const Announcement = () => {
+export const AnnouncementResident = () => {
     return (
-        <AdminView>
-            <Header 
-            plusButtonVisible={true}
-            />
+        <ResidentView>
+            <Header />
             <Annoucements />
-        </AdminView>
+        </ResidentView>
     )
 }
