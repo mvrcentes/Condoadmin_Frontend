@@ -38,7 +38,7 @@ function App() {
         <Route path="/admin/complaints/:id" element={<ComplaintDetails />} />
         <Route path="/admin/services/:id" element={<ServiceDetails />} />
 
-        <Route path="resident/announce" element={ <AnnouncementResident /> }/>
+        <Route path="/resident/announce" element={ <AnnouncementResident /> }/>
         <Route path="/resident/complaints" element={<ComplaintResident />} />
         <Route path="/resident/complaints/:id" element={<ComplaintResidentDetails />} />
         <Route path="/resident/house/:id" element={<ResidentHouseDetails />} />
