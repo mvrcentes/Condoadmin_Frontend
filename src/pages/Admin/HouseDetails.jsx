@@ -17,12 +17,14 @@ export const HouseDetails = () => {
     const { id } = useParams()
     const [data, setData] = useState([])
     const [isLoading, setIsLoading] = useState(true)
+    const [conteo_residentes, setConteo_residentes] = useState(0)
 
     async function fetchData() {
         try {
             const result = await getResidentsByHouseID(id)
             setData(result)
             setIsLoading(false)
+            setConteo_residentes(result.length)
         } catch (error) {
             console.error("Error fetching house by id:", error)
             setIsLoading(false)
@@ -70,28 +72,38 @@ export const HouseDetails = () => {
 
     //[{"num_casa":1,"cui":"1234567890123","nombre":"Andrés Quezada","telefono":"1234567890","correo":"residente1@example.com","tipo_residente":"Propietario"}]
     const valoresParaLosInputs = [
-        {type: "number", name: "num_casa", placeholder: "65789", title: "Num. Casa"},
+        // {type: "number", name: "num_casa", placeholder: "65789", title: "Num. Casa"},
         {type: "text", name: "cui", placeholder: "0000000000000000", title: "CUI"},
         {type: "text", name: "nombre", placeholder: "Nombre Apellido", title: "Nombre y Apellido"},
         {type: "text", name: "telefono", placeholder: " 44444444 ", title: "Telefono"},
         {type: "text", name: "correo", placeholder: " correo@email.com ", title: "Correo"},
         {type: "text", name: "tipo_residente", placeholder: " Propietario - Inquilino ", title: "Propietario/Inquilino"}, 
+        {type: "text", name: "admin", placeholder: " Si/No ", title: "Permisos de administrador"}
     ]
 
     const [residente, setResidente] = useState({
-        num_casa: 0,
+        num_casa: id,
         cui: "",
         nombre: "",
         telefono: "",
         correo: "",
         tipo_residente: "",
+        admin: "",
     })
 
     const agregarResidente = async () => {
         console.log("agregar residente")
 
         try {
-            const addedResident = await addResident(residente.num_casa, residente.cui, residente.nombre, residente.telefono, residente.correo, residente.tipo_residente);
+            const addedResident = await addResident(
+              residente.num_casa,
+              residente.cui,
+              residente.nombre, 
+              residente.telefono, 
+              residente.correo, 
+              residente.tipo_residente, 
+              conteo_residentes, 
+              residente.admin);
 
             console.log(`Resident added successfully: ${JSON.stringify(addedResident)}`);
         } catch (error) {

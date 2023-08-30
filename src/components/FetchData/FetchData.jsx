@@ -44,7 +44,9 @@ export const addResident = async (
   nombre,
   telefono,
   correo,
-  tipo_residente
+  tipo_residente,
+  conteo_residentes,
+  admin
 ) => {
   try {
     return (
@@ -55,6 +57,8 @@ export const addResident = async (
         telefono,
         correo,
         tipo_residente,
+        conteo_residentes,
+        admin,
       })
     ).data
   } catch (error) {
@@ -156,11 +160,24 @@ export const getAnnouncements = async () => {
 }
 
 export const getAnnouncementByID = async (id) => {
-    console.log({ id })
-    try {
-        return (await axios.get(`${server}/api/announcements/${id}`)).data
-    } catch (error) {
-        console.error(error)
-    }
+  console.log({ id })
+  try {
+    return (await axios.post(`${server}/api/announcements/${id}`)).data
+  } catch (error) {
+    console.error(error)
+  }
 }
 
+export const logIn = async (email, password) => {
+
+  try {
+    return (
+      await axios.post(`${server}/login`, {
+        email, password
+      })
+    ).data
+  } catch (error) {
+    console.error(error)
+  }
+
+}
