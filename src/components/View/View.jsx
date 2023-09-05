@@ -7,9 +7,9 @@ import style from "./View.module.css"
 //assets
 import logo from "../../assets/logo.png"
 
-const ButtonMenu = ({ icon, text, onClick }) => {
+const ButtonMenu = ({ icon, text, fn }) => {
   return (
-      <button className={style.buttonMenu} onClick={() => onClick()}>
+      <button className={style.buttonMenu} onClick={fn}>
           <div className={style.buttonMenuContainer}>
               <img className={style.icon} src={icon}></img>
               <div className={`${style.text} ${style.menuOptionText}`}>{text}</div>
@@ -34,8 +34,9 @@ function View({ menuOptions, tipo, children }) {
                                 key={index}
                                 icon={opcion[0]}
                                 text={opcion[1]}
-                                onClick={
-                                    opcion[1] 
+                                fn={
+                                    opcion[3]
+                                    
                                     // === "Cerrar sesión"
                                     //     ? null
                                     //     : null

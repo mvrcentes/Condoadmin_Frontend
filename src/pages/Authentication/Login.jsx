@@ -1,9 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { logIn } from "../../components/FetchData/FetchData"
 
-
-const Login = (setToken) => {
+const Login = ({ setToken }) => {
 
   const [nombre, setNombre] = useState('');
   const [contrasena, setContrasena] = useState('');
@@ -12,41 +11,45 @@ const Login = (setToken) => {
   const [userExists, setUserExists] = useState(false);
   const navigate = useNavigate();
 
-  const togglePasswordVisibility = () => {
-    setShowPassword(!showPassword);
-    setTimeout(() => {
-      setShowPassword(prevShowPassword => !prevShowPassword);
-    }, 800);
-  };
-
   const handleLogin = async (e) => {
     e.preventDefault();
 
     try {
 
-      const user2 = await logIn(nombre, contrasena)
+      const data = await logIn(nombre, contrasena)
 
-      console.log(`user error? ->>> ${user2.error}`)
+      // console.log(`user error? ->>> ${data.error}`)
 
-      if (user2.error) {
+      if (data.error) {
         setShowErrorNotification(true)
         setUserExists(true)
       }
 
 
-      const { admin, username } = user2.user.user_metadata;
+      const { admin, username } = data.user.user_metadata;
       // console.log(`user admin? ->>> ${admin}`)
       // console.log(`user username? ->>> ${username}`)
 
       if (admin) {
+        sessionStorage.setItem("token", JSON.stringify(data))
+        setToken(data)
         navigate('/admin/services');
       } else if (!admin) {
+        sessionStorage.setItem("token", JSON.stringify(data))
+        setToken(data)
         navigate('/resident/announce');
       }
 
     } catch (error) {
       // Manejo de errores
     }
+  };
+
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+    setTimeout(() => {
+      setShowPassword(prevShowPassword => !prevShowPassword);
+    }, 800);
   };
 
   return (

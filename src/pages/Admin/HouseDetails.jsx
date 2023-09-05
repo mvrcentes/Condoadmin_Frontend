@@ -1,23 +1,27 @@
 import React, { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
-
-// Data
-import { getResidentsByHouseID, addResident } from "../../components/FetchData/FetchData"
-
-// View
 import AdminView from "../../components/View/AdminView"
-
-// Components
-import style from "./HouseDetails.module.css"
 import { Card } from "../../components/Card/Card"
 import { Header } from "../../components/Header/Header"
-
+import style from "./HouseDetails.module.css"
+import { getResidentsByHouseID, addResident } from "../../components/FetchData/FetchData"
 
 export const HouseDetails = () => {
     const { id } = useParams()
     const [data, setData] = useState([])
     const [isLoading, setIsLoading] = useState(true)
     const [conteo_residentes, setConteo_residentes] = useState(0)
+    const [search, setSearch] = useState("")
+    const [residente, setResidente] = useState({
+        num_casa: id,
+        cui: "",
+        nombre: "",
+        telefono: "",
+        correo: "",
+        tipo_residente: "",
+        admin: "",
+    })
+    const [refreshCount, setRefreshCount] = useState(0) // Nuevo estado para controlar la actualización
 
     async function fetchData() {
         try {
@@ -33,98 +37,86 @@ export const HouseDetails = () => {
 
     useEffect(() => {
         fetchData()
-    }, [])
+    }, [refreshCount])
 
-    console.log(data)
-
-    // Haciendo el search bar funcional, necesitamos obtener el valor que ingresa el usuario, procesarlo y luego filtrar los resultados con la funcion map
-    const [search, setSearch] = useState("")
     const useSearch = (e) => {
         setSearch(e.target.value)
-        console.log(search)
     }
 
-    //se chequea si el search esta vacio, si lo esta se muestran todas las casas, si no, se filtran las casas que contengan el numero de casa que se esta buscando
     const generateResidentCards = () => {
-        if (search == "") {
+        if (search === "") {
             return (
                 data.map((info) => (
-                        <Card key={info.code}>
-                            <h3 className={style.resName}>{info.nombre}</h3>
-                            <p className={style.CUI}>CUI: {info.cui}</p>
-                            <p className={style.phoneNum}>Tel: {info.telefono}</p>
-                            <p className={style.mail}>Mail: {info.correo}</p>
-                        </Card>
-                )))
+                    <Card key={info.code}>
+                        <h3 className={style.resName}>{info.nombre}</h3>
+                        <p className={style.CUI}>CUI: {info.cui}</p>
+                        <p className={style.phoneNum}>Tel: {info.telefono}</p>
+                        <p className={style.mail}>Mail: {info.correo}</p>
+                    </Card>
+                ))
+            )
         } else {
-            const arrayResidentesFiltrados = data.filter(objeto => objeto.nombre.toLowerCase().startsWith(search.toLowerCase()));
+            const arrayResidentesFiltrados = data.filter(objeto => objeto.nombre.toLowerCase().startsWith(search.toLowerCase()))
             return (
                 arrayResidentesFiltrados.map((info) => (
                     <Card key={info.code}>
-                            <h3 className={style.resName}>{info.nombre}</h3>
-                            <p className={style.CUI}>CUI: {info.cui}</p>
-                            <p className={style.phoneNum}>Tel: {info.telefono}</p>
-                            <p className={style.mail}>Mail: {info.correo}</p>
-                        </Card>
-                )))
+                        <h3 className={style.resName}>{info.nombre}</h3>
+                        <p className={style.CUI}>CUI: {info.cui}</p>
+                        <p className={style.phoneNum}>Tel: {info.telefono}</p>
+                        <p className={style.mail}>Mail: {info.correo}</p>
+                    </Card>
+                ))
+            )
         }
     }
 
-    //[{"num_casa":1,"cui":"1234567890123","nombre":"Andrés Quezada","telefono":"1234567890","correo":"residente1@example.com","tipo_residente":"Propietario"}]
     const valoresParaLosInputs = [
-        // {type: "number", name: "num_casa", placeholder: "65789", title: "Num. Casa"},
-        {type: "text", name: "cui", placeholder: "0000000000000000", title: "CUI"},
-        {type: "text", name: "nombre", placeholder: "Nombre Apellido", title: "Nombre y Apellido"},
-        {type: "text", name: "telefono", placeholder: " 44444444 ", title: "Telefono"},
-        {type: "text", name: "correo", placeholder: " correo@email.com ", title: "Correo"},
-        {type: "text", name: "tipo_residente", placeholder: " Propietario - Inquilino ", title: "Propietario/Inquilino"}, 
-        {type: "text", name: "admin", placeholder: " Si/No ", title: "Permisos de administrador"}
+        { type: "text", name: "cui", placeholder: "0000000000000000", title: "CUI" },
+        { type: "text", name: "nombre", placeholder: "Nombre Apellido", title: "Nombre y Apellido" },
+        { type: "text", name: "telefono", placeholder: " 44444444 ", title: "Telefono" },
+        { type: "text", name: "correo", placeholder: " correo@email.com ", title: "Correo" },
+        { type: "text", name: "tipo_residente", placeholder: " Propietario - Inquilino ", title: "Propietario/Inquilino" },
+        { type: "text", name: "admin", placeholder: " Si/No ", title: "Permisos de administrador" }
     ]
 
-    const [residente, setResidente] = useState({
-        num_casa: id,
-        cui: "",
-        nombre: "",
-        telefono: "",
-        correo: "",
-        tipo_residente: "",
-        admin: "",
-    })
-
     const agregarResidente = async () => {
-        console.log("agregar residente")
-
         try {
             const addedResident = await addResident(
-              residente.num_casa,
-              residente.cui,
-              residente.nombre, 
-              residente.telefono, 
-              residente.correo, 
-              residente.tipo_residente, 
-              conteo_residentes, 
-              residente.admin);
-
-            console.log(`Resident added successfully: ${JSON.stringify(addedResident)}`);
+                residente.num_casa,
+                residente.cui,
+                residente.nombre,
+                residente.telefono,
+                residente.correo,
+                residente.tipo_residente,
+                conteo_residentes,
+                residente.admin
+            )
+            console.log(`Resident added successfully: ${JSON.stringify(addedResident)}`)
+            // Incrementa el contador para forzar la actualización
+            setRefreshCount(refreshCount + 1)
         } catch (error) {
-            console.error(`Error adding columnas: ${error}`);
+            console.error(`Error adding columnas: ${error}`)
         }
-
     }
 
     return (
         <AdminView>
-            <Header 
-                search={search} 
-                useSearch={useSearch} 
+            <Header
+                search={search}
+                useSearch={useSearch}
                 valoresParaLosInputs={valoresParaLosInputs}
                 columnas={residente}
                 setColumnas={setResidente}
                 funcionAgregadora={agregarResidente}
                 title={"Añadir residente"}
-                plusButtonVisible={true}/>
+                plusButtonVisible={true}
+            />
             <div className={style.residentsContainer}>
-                {generateResidentCards()}
+                {isLoading ? (
+                    <p>Loading...</p>
+                ) : (
+                    generateResidentCards()
+                )}
             </div>
         </AdminView>
     )

@@ -1,24 +1,19 @@
 import { useState, useEffect } from "react"
-import styles from "./NewView.module.css"
 import PropTypes from "prop-types"
 import arrow from "../../assets/arrow.svg"
-
-import React from "react"
-
 import { getAnnouncementByID } from "../FetchData/FetchData"
 import { useParams } from "react-router-dom"
 
 export const Comment = ({ props }) => {
     return (
-        <div className={styles.CommentBox}>
-            <div className={styles.Row}>
-                <div className={styles.LeftSide}></div>
-                <div className={styles.Column}>
-                    <div className={styles.CommentAs}>{props.author}</div>
-                    <div className={styles.Comment}>{props.body}</div>
-                    <div className={styles.row}></div>
+        <div className="bg-white p-4 rounded-lg shadow-md mb-4">
+            <div className="flex items-center mb-2">
+                <div className="w-8 h-8 bg-gray-300 rounded-full"></div>
+                <div className="ml-2">
+                    <div className="text-gray-700 font-semibold">{props.author}</div>
                 </div>
             </div>
+            <div className="text-gray-800">{props.body}</div>
         </div>
     )
 }
@@ -40,7 +35,7 @@ export const NewView = () => {
         }
     }
 
-    console.log({announce})
+    // console.log({ announce })
 
     useEffect(() => {
         fetchData()
@@ -50,32 +45,27 @@ export const NewView = () => {
         return <div>Loading...</div>
     }
 
-
     return (
-        <div className={styles.Box}>
-            <div className={styles.Row}>
-                <div className={styles.UpVotes}>
-                    <img className={styles.arrow} src={arrow} alt="" />
-                </div>
-                <div className={styles.Column}>
-                    <div className={styles.Post}>{announce.autor}</div>
-                    <div className={styles.Title}>{announce.titulo}</div>
-                    <div className={styles.Body}>{announce.contenido}</div>
-
-                    <div className={styles.CommentAs}></div>
-                    <div className={styles.Comment}>
-                        <input
-                            className={styles.Input}
-                            type="text"
-                            placeholder="¿En qué estás pensando?"
-                        />
-                    </div>
+        <div className="bg-gray-100 p-4 rounded-lg shadow-lg mb-4 ml-4 ">
+            <div className="flex items-center mb-4">
+                <div className="w-8 h-8 bg-gray-300 rounded-full"></div>
+                <div className="ml-2">
+                    <div className="text-gray-700 font-semibold">{announce.autor}</div>
+                    <div className="text-gray-600">{announce.titulo}</div>
                 </div>
             </div>
-
-            <br />
-            <br />
-
+            <div className="text-gray-800">{announce.contenido}</div>
+            <div className="mt-4">
+                <div className="text-gray-700 font-semibold">Comentarios:</div>
+                <div className="mt-2">
+                    <input
+                        className="w-full bg-gray-200 rounded-md p-2 focus:outline-none focus:ring focus:border-blue-300"
+                        type="text"
+                        placeholder="Escribe un comentario..."
+                    />
+                </div>
+            </div>
+            {/* Renderizar comentarios */}
             {/* {comments.map((item, index) => (
                 <Comment key={index} props={item} />
             ))} */}

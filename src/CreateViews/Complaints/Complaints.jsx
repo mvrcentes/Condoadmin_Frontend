@@ -1,59 +1,111 @@
-import React, { useEffect, useState } from "react"
-
-import { Register } from "../../components/Register/Register"
-
-import { getComplaints } from "../../components/FetchData/FetchData"
-
-import style from "./Complaints.module.css"
+import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import { getComplaints } from "../../components/FetchData/FetchData";
 
 export const Complaints = ({ search }) => {
-  const [complaints, setComplaints] = useState([])
-  const [isLoading, setIsLoading] = useState(true)
+  const [complaints, setComplaints] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   async function fetchData() {
     try {
-      const result = await getComplaints()
-      setComplaints(result)
-      console.log("error", result)
-      setIsLoading(false)
+      const result = await getComplaints();
+      setComplaints(result);
+      setIsLoading(false);
     } catch (error) {
-      console.error("Error fetching complaints:", error)
-      setIsLoading(false)
+      console.error("Error fetching complaints:", error);
+      setIsLoading(false);
     }
   }
 
   useEffect(() => {
-    fetchData()
-  }, [])
+    fetchData();
+  }, []);
 
-  //se chequea si el search esta vacio, si lo esta se muestran todas las casas, si no, se filtran las casas que contengan el numero de casa que se esta buscando
+  // Función para generar el contenido de las quejas en formato de tabla
   const generateComplaints = () => {
-    if (search == "") {
+    if (search === "") {
       return (
-        complaints.map((complaint, index) => (
-          // console.log(complaint)
-           <Register key={index} props={complaint} to={"complaints/"+complaint.id}/>
-        )))
+        <table className="table-auto w-full bg-blue-100">
+          <thead>
+            <tr>
+              <th className="px-4 py-2 text-left">Titulo</th>
+              <th className="px-4 py-2 text-left">Residente</th>
+              <th className="px-4 py-2 text-left">Fecha</th>
+              <th className="px-4 py-2 text-left">Upvotes</th>
+            </tr>
+          </thead>
+          <tbody>
+            {complaints.map((complaint, index) => (
+              <tr
+                key={index}
+                className="cursor-pointer hover:bg-blue-200"
+                onClick={() => {
+                  // Redirigir a la ruta correspondiente al hacer clic en cualquier dato de la fila
+                  window.location.href = `/admin/complaints/${complaint.id}`;
+                }}
+              >
+                <td className="border px-4 py-2">
+                  <Link to={`/admin/complaints/${complaint.id}`}>
+                    {complaint.titulo}
+                  </Link>
+                </td>
+                <td className="border px-4 py-2">{complaint.residente}</td>
+                <td className="border px-4 py-2">{complaint.fecha}</td>
+                <td className="border px-4 py-2">{complaint.upvotes}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      );
     } else {
-      const arrayQuejasFiltradas = complaints.filter(objeto => (objeto.titulo.toLowerCase().startsWith(search.toLowerCase())))
+      const arrayQuejasFiltradas = complaints.filter((objeto) =>
+        objeto.titulo.toLowerCase().startsWith(search.toLowerCase())
+      );
       return (
-        
-        arrayQuejasFiltradas.map((complaint, index) => (
-          <Register key={index} props={complaint} to={"complaints/"+complaint.id}/>
-        )))
+        <table className="table-auto w-full bg-blue-100">
+          <thead>
+            <tr>
+              <th className="px-4 py-2 text-left">Titulo</th>
+              <th className="px-4 py-2 text-left">Residente</th>
+              <th className="px-4 py-2 text-left">Fecha</th>
+              <th className="px-4 py-2 text-left">Upvotes</th>
+            </tr>
+          </thead>
+          <tbody>
+            {arrayQuejasFiltradas.map((complaint, index) => (
+              <tr
+                key={index}
+                className="cursor-pointer hover:bg-blue-200"
+                onClick={() => {
+                  // Redirigir a la ruta correspondiente al hacer clic en cualquier dato de la fila
+                  window.location.href = `/admin/complaints/${complaint.id}`;
+                }}
+              >
+                <td className="border px-4 py-2">
+                  <Link to={`/admin/complaints/${complaint.id}`}>
+                    {complaint.titulo}
+                  </Link>
+                </td>
+                <td className="border px-4 py-2">{complaint.residente}</td>
+                <td className="border px-4 py-2">{complaint.fecha}</td>
+                <td className="border px-4 py-2">{complaint.upvotes}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      );
     }
-  }
+  };
 
   return (
-    <div className={style.Complaints}>
-      <Register props={{ titulo: "Titulo", residente: "Residente", fecha: "Fecha", upvotes: "Upvotes" }} />
-      {isLoading ? (
-        <h1>Loading...</h1>
-      ) :
-        (
-          // complaints.map((complaint, index) => <Register key={index} props={complaint} />)
-          generateComplaints()
-        )}
+    <div className="container mx-auto px-4 py-8" style={
+      {
+        width: "100%",
+        overflowY: "auto",
+        overflowX: "hidden",
+      }
+    }>
+      {isLoading ? <h1>Loading...</h1> : generateComplaints()}
     </div>
-  )
-}
+  );
+};

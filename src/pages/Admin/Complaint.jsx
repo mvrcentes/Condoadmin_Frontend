@@ -10,30 +10,8 @@ export const Complaint = () => {
 
   const [search, setSearch] = useState("")
   const [isLoading, setIsLoading] = useState(true)
-
-  const valoresParaLosInputs = [
-    { type: "number", name: "num_casa", placeholder: "NOOOOO RELLENEEEE PLSS", title: "ESTO NO SIRVE" },
-  ]
-
   const [complaint, setComplaint] = useState({
-    // num_casa: 0,
-    // direccion: "",
-    // condominio: 0,
-    // cuota_mensual: 0,
   })
-
-  const agregarCasa = async () => {
-    console.log("agregar doctor")
-
-    // try {
-    //   const addedDoctor = await addHouse(house.num_casa, house.direccion, house.condominio, house.cuota_mensual);
-
-    //   console.log(`House added successfully: ${JSON.stringify(addedDoctor)}`);
-    // } catch (error) {
-    //   console.error(`Error adding columnas: ${error}`);
-    // }
-
-  }
 
   const useSearch = (e) => {
     setSearch(e.target.value)
@@ -61,10 +39,10 @@ export const Complaint = () => {
       <Header
         search={search}
         useSearch={useSearch}
-        valoresParaLosInputs={valoresParaLosInputs}
+        valoresParaLosInputs={null}
         columnas={complaint}
         setColumnas={setComplaint}
-        funcionAgregadora={agregarCasa}
+        funcionAgregadora={null}
         title={"Añadir queja"}
       />
       <Complaints search={search} />
