@@ -1,23 +1,19 @@
-import React from 'react'
-import { render, screen } from '@testing-library/react'
-// import { describe } from 'vitest'
+import React from "react";
+import { render, screen } from "@testing-library/react";
+import { NewView } from "./NewView";
 
-import { NewView } from './NewView'
+describe("NewView component", () => {
 
-describe('NewView component', () => {
-  
-  test('Renders correctly', () => {
-    render(
-      <NewView />
-    )
-  })
+  test("Renderiza correctamente el componente NewView", () => {
+    render(<NewView />);
+    const loadingElement = screen.getByText("Loading...");
+    expect(loadingElement).toBeInTheDocument();
+  });
 
-  test('Title shows correctly', () => {
-    expect(screen.queryByText(/Test/i)).toBeDefined()
-  })
+  test("Muestra un mensaje de carga mientras se carga el anuncio", () => {
+    render(<NewView />);
+    const loadingElement = screen.getByText("Loading...");
+    expect(loadingElement).toBeInTheDocument();
+  });
 
-  test('Shows text correctly', () => {
-    expect(screen.queryByText(/ABC/i)).toBeDefined()
-  })
-
-})
+});

@@ -1,25 +1,33 @@
 import React from 'react'
 import { render, screen } from '@testing-library/react'
-// import { describe } from 'vitest'
-
 import MiniCard from './MiniCard'
 
 describe('MiniCard component', () => {
-  
   test('Renders correctly', () => {
-    render(
-      <MiniCard title="Test">
-        <div>ABC</div>
-      </MiniCard>
-    )
+    render(<MiniCard title="Test Title">Test Content</MiniCard>)
+    
+    // Verifica que el componente se renderice correctamente.
+    const miniCardElement = screen.getByTestId('mini-card')
+    expect(miniCardElement).toBeInTheDocument()
+
+    // Verifica que el título se muestre correctamente.
+    expect(screen.getByText('Test Title')).toBeInTheDocument()
+
+    // Verifica que el contenido se muestre correctamente.
+    expect(screen.getByText('Test Content')).toBeInTheDocument()
   })
 
   test('Title shows correctly', () => {
-    expect(screen.queryByText(/Test/i)).toBeDefined()
+    render(<MiniCard title="Test Title">Test Content</MiniCard>)
+    
+    // Verifica que el título se muestre correctamente.
+    expect(screen.getByText('Test Title')).toBeInTheDocument()
   })
 
-  test('Shows text correctly', () => {
-    expect(screen.queryByText(/ABC/i)).toBeDefined()
+  test('Content shows correctly', () => {
+    render(<MiniCard title="Test Title">Test Content</MiniCard>)
+    
+    // Verifica que el contenido se muestre correctamente.
+    expect(screen.getByText('Test Content')).toBeInTheDocument()
   })
-
 })

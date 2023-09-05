@@ -1,21 +1,28 @@
-import React from 'react'
-import { fireEvent, render, screen } from '@testing-library/react'
-// import { describe } from 'vitest'
+import React from 'react';
+import { render, screen, fireEvent } from '@testing-library/react';
+import { PlusButton } from './PlusButton';
 
-import { PlusButton } from './PlusButton'
-
-describe('PlusButton component', () => {
+test('Renderiza el botón correctamente', () => {
+  render(<PlusButton onClick={() => {}} />);
   
-  test('Renders correctly', () => {
-    render(
-      <PlusButton />
-    )
-  })
+  // Verifica que el botón se haya renderizado
+  const buttonElement = screen.getByAltText('add item');
+  expect(buttonElement).toBeInTheDocument();
+});
 
-  test('Button exists', () => {
-    const button = screen.queryByText("");
-    fireEvent.click(button);
-    expect(screen.queryByText(/plus-button/i)).toBeDefined();
-  })
+test('Llama a la función onClick cuando se hace clic en el botón', () => {
+  // Crea una función simulada para onClick
+  const onClickMock = () => {
+    onClickMock.called = true;
+  };
+  onClickMock.called = false;
 
-})
+  render(<PlusButton onClick={onClickMock} />);
+  
+  // Simula un clic en el botón
+  const buttonElement = screen.getByAltText('add item');
+  fireEvent.click(buttonElement);
+
+  // Verifica que la función onClick se haya llamado
+  expect(onClickMock.called).toBe(true);
+});

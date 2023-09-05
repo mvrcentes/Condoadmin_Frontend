@@ -3,6 +3,7 @@ import PropTypes from "prop-types"
 import arrow from "../../assets/arrow.svg"
 import { getAnnouncementByID } from "../FetchData/FetchData"
 import { useParams } from "react-router-dom"
+import React from "react"
 
 export const Comment = ({ props }) => {
     return (
