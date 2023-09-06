@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { getAnnouncements } from "../../components/FetchData/FetchData";
 
-export const Annoucements = () => {
+export const Annoucements = ({ admin }) => {
   const [announcements, setAnnouncements] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -55,12 +55,21 @@ export const Annoucements = () => {
               <div className="text-gray-500 text-sm">
                 Author: {item.autor} | Date: {item.fecha_creacion.slice(0, 10)}
               </div>
-              <Link
-                to={`/admin/announce/${item.id}`}
-                className="block mt-4 text-center bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 transition duration-300"
-              >
-                Read More
-              </Link>
+              {admin ?
+                <Link
+                  to={`/admin/announce/${item.id}`}
+                  className="block mt-4 text-center bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 transition duration-300"
+                >
+                  Read More
+                </Link>
+                :
+                <Link
+                  to={`/resident/announce/${item.id}`}
+                  className="block mt-4 text-center bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 transition duration-300"
+                >
+                  Read More
+                </Link>
+              }
             </div>
           ))}
         </div>

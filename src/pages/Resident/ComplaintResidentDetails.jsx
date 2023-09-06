@@ -5,7 +5,7 @@ import { useParams } from "react-router-dom"
 import { getComplaintsByID } from "../../components/FetchData/FetchData"
 
 // View
-import AdminView from "../../components/View/AdminView"
+import ResidentView from "../../components/View/ResidentView"
 
 // Components
 import style from "./ComplaintResidentDetails.module.css"
@@ -50,10 +50,10 @@ export const ComplaintResidentDetails = () => {
   }
 
   return (
-    <AdminView>
+    <ResidentView>
       <div className={style.residentsContainer}>
         {generateServiceCards()}
       </div>
-    </AdminView>
+    </ResidentView>
   )
 }

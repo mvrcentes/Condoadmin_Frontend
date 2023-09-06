@@ -6,11 +6,11 @@ import ResidentView from "../../components/View/ResidentView"
 import { Annoucements } from "../../CreateViews/Annoucements/Annoucements"
 import { Header } from "../../components/Header/Header"
 
-export const AnnouncementResident = () => {
+export const AnnouncementResident = ( {admin} ) => {
     return (
         <ResidentView>
             <Header />
-            <Annoucements />
+            <Annoucements admin={admin}/>
         </ResidentView>
     )
 }

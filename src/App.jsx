@@ -36,7 +36,11 @@ function App() {
 
   const [token, setToken] = useState(false);
 
-  console.log(`token ->>> ${token}`);
+  try {
+    // console.log(`token app.js ->>> ${token.user.user_metadata.admin}`);
+  } catch (error) {
+
+  }
 
   useEffect(() => {
     const sessionToken = sessionStorage.getItem('token');
@@ -57,8 +61,8 @@ function App() {
                 <Route path="/admin/services" element={<Services />} />
                 <Route path="/admin/houses" element={<Houses />} />
                 <Route path="/admin/house/:id" element={<HouseDetails />} />
-                <Route path="/admin/announce" element={<Announcement />} />
-                <Route path="/admin/announce/:id" element={<AnnoucementByID />} />
+                <Route path="/admin/announce" element={<Announcement admin={token.user.user_metadata.admin}/>} />
+                <Route path="/admin/announce/:id" element={<AnnoucementByID admin={token.user.user_metadata.admin}/>} />
                 <Route path="/admin/complaints" element={<Complaint />} />
                 <Route path="/admin/complaints/:id" element={<ComplaintDetails />} />
                 <Route path="/admin/services/:id" element={<ServiceDetails />} />
@@ -68,7 +72,8 @@ function App() {
               <>
                 <Route path="/login" element={< Login setToken={setToken} />} />
                 <Route path="/" element={<AnnouncementResident />} />
-                <Route path="/resident/announce" element={<AnnouncementResident />} />
+                <Route path="/resident/announce" element={<AnnouncementResident admin={token.user.user_metadata.admin} />} />
+                <Route path="/resident/announce/:id" element={<AnnoucementByID admin={token.user.user_metadata.admin}/>} />
                 <Route path="/resident/complaints" element={<ComplaintResident />} />
                 <Route path="/resident/complaints/:id" element={<ComplaintResidentDetails />} />
                 <Route path="/resident/house/:id" element={<ResidentHouseDetails />} />

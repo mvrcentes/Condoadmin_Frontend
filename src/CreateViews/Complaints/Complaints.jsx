@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { getComplaints } from "../../components/FetchData/FetchData";
 
-export const Complaints = ({ search }) => {
+export const Complaints = ({ search, admin }) => {
   const [complaints, setComplaints] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -41,11 +41,16 @@ export const Complaints = ({ search }) => {
                 className="cursor-pointer hover:bg-blue-200"
                 onClick={() => {
                   // Redirigir a la ruta correspondiente al hacer clic en cualquier dato de la fila
-                  window.location.href = `/admin/complaints/${complaint.id}`;
+                  const route = admin
+                    ? `/admin/complaints/${complaint.id}`
+                    : `/resident/complaints/${complaint.id}`;
+                  window.location.href = route;
                 }}
               >
                 <td className="border px-4 py-2">
-                  <Link to={`/admin/complaints/${complaint.id}`}>
+                  <Link
+                    to={admin ? `/admin/complaints/${complaint.id}` : `/resident/complaints/${complaint.id}`}
+                  >
                     {complaint.titulo}
                   </Link>
                 </td>
@@ -78,11 +83,16 @@ export const Complaints = ({ search }) => {
                 className="cursor-pointer hover:bg-blue-200"
                 onClick={() => {
                   // Redirigir a la ruta correspondiente al hacer clic en cualquier dato de la fila
-                  window.location.href = `/admin/complaints/${complaint.id}`;
+                  const route = admin
+                    ? `/admin/complaints/${complaint.id}`
+                    : `/resident/complaints/${complaint.id}`;
+                  window.location.href = route;
                 }}
               >
                 <td className="border px-4 py-2">
-                  <Link to={`/admin/complaints/${complaint.id}`}>
+                  <Link
+                    to={admin ? `/admin/complaints/${complaint.id}` : `/resident/complaints/${complaint.id}`}
+                  >
                     {complaint.titulo}
                   </Link>
                 </td>

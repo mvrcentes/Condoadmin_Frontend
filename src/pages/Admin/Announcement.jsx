@@ -8,13 +8,13 @@ import { Header } from "../../components/Header/Header"
 
 
 
-export const Announcement = () => {
+export const Announcement = ( {admin} ) => {
     return (
         <AdminView>
             <Header 
             plusButtonVisible={true}
             />
-            <Annoucements />
+            <Annoucements admin={admin} />
         </AdminView>
     )
 }
