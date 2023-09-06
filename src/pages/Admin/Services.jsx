@@ -29,6 +29,8 @@ export const Services = () => {
         }
     }
 
+    console.log(sessionStorage.getItem("token"))
+
     useEffect(() => {
         fetchData()
     }, [refreshCount]) // Agregar refreshCount como dependencia

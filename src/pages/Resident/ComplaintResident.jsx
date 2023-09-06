@@ -20,8 +20,6 @@ export const ComplaintResident = () => {
     { type: "text", name: "titulo", placeholder: "Ingrese el titulo", title: "Titulo" },
     { type: "text", name: "contenido", placeholder: "Ingrese el contenido", title: "Contenido" },
     { type: "date", name: "fecha", placeholder: "Ingrese la fecha", title: "Fecha" },
-    { type: "text", name: "autor", placeholder: "Ingrese el autor", title: "Autor" },
-    { type: "text", name: "residente", placeholder: "Ingrese el residente", title: "Residente" },
   ]
 
   const [complaint, setComplaint] = useState({
@@ -33,12 +31,11 @@ export const ComplaintResident = () => {
   })
 
   const agregarQueja = async () => {
-    console.log("agregar queja")
-
+    // console.log("agregar queja")
+    const token = JSON.parse(sessionStorage.getItem("token"))
     try {
-      // const addedComplaint = await addComplaint(house.num_casa, house.direccion, house.condominio, house.cuota_mensual);
-      const addedComplaint = await addComplaint(complaint.titulo, complaint.contenido, complaint.fecha, complaint.autor, complaint.residente);
-      
+      const addedComplaint = await addComplaint(complaint.titulo, complaint.contenido, complaint.fecha, token.user.user_metadata.username, token.user.user_metadata.cui);
+
       console.log(`complaint added successfully: ${JSON.stringify(addedComplaint)}`);
     } catch (error) {
       console.error(`Error adding columnas: ${error}`);
