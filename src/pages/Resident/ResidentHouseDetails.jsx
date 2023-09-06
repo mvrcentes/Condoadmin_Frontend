@@ -13,8 +13,7 @@ import { Card } from "../../components/Card/Card"
 import { Header } from "../../components/Header/Header"
 
 
-export const ResidentHouseDetails = () => {
-    const { id } = useParams()
+export const ResidentHouseDetails = ( {id} ) => {
     const [data, setData] = useState([])
     const [isLoading, setIsLoading] = useState(true)
 

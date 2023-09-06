@@ -2,9 +2,8 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getComplaintsByID } from "../../components/FetchData/FetchData";
 import AdminView from "../../components/View/AdminView";
-import ResidentView from "../../components/View/ResidentView";
 
-export const ComplaintDetails = ( {admin} ) => {
+export const ComplaintDetails = ( ) => {
   const { id } = useParams();
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);

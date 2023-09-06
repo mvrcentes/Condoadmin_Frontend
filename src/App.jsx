@@ -63,7 +63,7 @@ function App() {
                 <Route path="/admin/house/:id" element={<HouseDetails />} />
                 <Route path="/admin/announce" element={<Announcement admin={token.user.user_metadata.admin}/>} />
                 <Route path="/admin/announce/:id" element={<AnnoucementByID admin={token.user.user_metadata.admin}/>} />
-                <Route path="/admin/complaints" element={<Complaint />} />
+                <Route path="/admin/complaints" element={<Complaint admin={token.user.user_metadata.admin}/>} />
                 <Route path="/admin/complaints/:id" element={<ComplaintDetails />} />
                 <Route path="/admin/services/:id" element={<ServiceDetails />} />
                 <Route path="*" element={<NotFoundPage />} />
@@ -76,7 +76,7 @@ function App() {
                 <Route path="/resident/announce/:id" element={<AnnoucementByID admin={token.user.user_metadata.admin}/>} />
                 <Route path="/resident/complaints" element={<ComplaintResident />} />
                 <Route path="/resident/complaints/:id" element={<ComplaintResidentDetails />} />
-                <Route path="/resident/house/:id" element={<ResidentHouseDetails />} />
+                <Route path="/resident/house/:id" element={<ResidentHouseDetails id={token.user.user_metadata.num_casa} />} />
                 <Route path="/resident/emergencies" element={<Emergencies />} />
                 <Route path="*" element={<NotFoundPage />} />
               </>

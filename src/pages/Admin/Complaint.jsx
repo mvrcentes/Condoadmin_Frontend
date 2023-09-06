@@ -6,7 +6,7 @@ import { Header } from '../../components/Header/Header'
 import { getComplaints } from "../../components/FetchData/FetchData"
 
 
-export const Complaint = () => {
+export const Complaint = ( {admin} ) => {
 
   const [search, setSearch] = useState("")
   const [isLoading, setIsLoading] = useState(true)
@@ -45,7 +45,7 @@ export const Complaint = () => {
         funcionAgregadora={null}
         title={"Añadir queja"}
       />
-      <Complaints search={search} />
+      <Complaints search={search} admin={admin} />
     </AdminView>
   )
 }

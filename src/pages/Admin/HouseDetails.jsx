@@ -91,7 +91,7 @@ export const HouseDetails = () => {
                 conteo_residentes,
                 residente.admin
             )
-            console.log(`Resident added successfully: ${JSON.stringify(addedResident)}`)
+            console.log(`Resident added successfully HOUSEDETAILS: ${JSON.stringify(addedResident)}`)
             // Incrementa el contador para forzar la actualización
             setRefreshCount(refreshCount + 1)
         } catch (error) {
