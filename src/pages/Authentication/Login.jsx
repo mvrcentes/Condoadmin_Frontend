@@ -82,7 +82,7 @@ const Login = ({ setToken }) => {
             </button>
           </div>
         )}
-        <h2 className="text-2xl font-semibold mb-4">Iniciar Sesión</h2>
+        <h2 className="text-2xl font-semibold mb-4 text-center">Iniciar Sesión</h2>
         <form className="space-y-4" onSubmit={handleLogin}>
           <div>
             <label htmlFor="nombre" className="block font-medium">
