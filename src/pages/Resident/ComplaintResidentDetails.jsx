@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
+import { FaArrowUp, FaArrowDown } from 'react-icons/fa'; // Importa los íconos de flecha
+
 
 // Data
 import { getComplaintsByID } from "../../components/FetchData/FetchData"
@@ -30,24 +32,32 @@ export const ComplaintResidentDetails = () => {
     fetchData()
   }, [])
 
-  //se chequea si el search esta vacio, si lo esta se muestran todas las casas, si no, se filtran las casas que contengan el numero de casa que se esta buscando
   const generateServiceCards = () => {
-    console.log(data[0])
+    // Mapea los datos y utiliza clases de Tailwind CSS
     return (
-      data.map((info) => (
-        <div className={style.container}>
-            <div className={style.post}>
-            <h3 className={style.title}>{info.titulo}</h3>
-            <h3 className={style.contenido}>{info.contenido}</h3> <br/>
-            <h3 className={style.fechaComplaint}>Fecha: {info.fecha}</h3>
-            <h3 className={style.upvotes}>Upvote: {info.upvotes}</h3>
-            <h3 className={style.downvotes}>Downvote: {info.downvotes}</h3>
-            <h3 className={style.autor}>Autor: {info.autor}</h3>
+      data.map((info, index) => (
+        <div key={index} className="bg-white shadow-md rounded-lg p-4 m-4">
+          <h3 className="text-xl font-semibold">{info.titulo}</h3>
+          <p className="text-gray-600 text-sm mt-2">{info.contenido}</p>
+          <div className="flex justify-between mt-4">
+            <p className="text-gray-500 text-sm">Fecha: {info.fecha}</p>
           </div>
+          <p className="text-gray-500 text-sm mt-2">Autor: {info.autor}</p>
+          <div className="flex space-x-4 items-center mt-4">
+              <div className="flex items-center">
+                <FaArrowUp className="text-green-600 text-lg" />
+                <span className="text-green-600 text-sm ml-1">{info.upvotes}</span>
+              </div>
+              <div className="flex items-center">
+                <FaArrowDown className="text-red-600 text-lg" />
+                <span className="text-red-600 text-sm ml-1">{info.downvotes}</span>
+              </div>
+            </div>
         </div>
-      )))
-
+      ))
+    );
   }
+  
 
   return (
     <ResidentView>
