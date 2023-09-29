@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { logIn } from "../../components/FetchData/FetchData"
+import logoBackground from '../../assets/logov2.png'
 
 const Login = ({ setToken }) => {
 
@@ -52,10 +53,19 @@ const Login = ({ setToken }) => {
     }, 800);
   };
 
+  const backgroundStyle = {
+    backgroundImage: `url(${logoBackground})`,
+    backgroundPosition: 'center',
+    backgroundRepeat: 'no-repeat',
+    backgroundSize: 'contain',
+    opacity: '0.1',
+    zIndex: '0',
+  };
+
   return (
     <div className="flex justify-center items-center h-screen bg-gray-100">
-      <div className="bg-white p-8 rounded shadow-md w-80">
-
+    <div className="absolute top-0 left-0 right-0 bottom-0" style={backgroundStyle} />
+      <div className="bg-white p-8 rounded shadow-md w-80" style={{ position: 'relative', zIndex: 1 }}>
         {showErrorNotification && (
           <div id="toast-default" className="fixed flex top-5 right-5 items-center w-full max-w-xs p-4 text-gray-700 bg-white rounded-lg shadow" role="alert">
             <div className="inline-flex items-center justify-center flex-shrink-0 w-8 h-8 text-white bg-red-500 rounded-lg">
@@ -72,7 +82,6 @@ const Login = ({ setToken }) => {
             </button>
           </div>
         )}
-
         <h2 className="text-2xl font-semibold mb-4">Iniciar Sesión</h2>
         <form className="space-y-4" onSubmit={handleLogin}>
           <div>
