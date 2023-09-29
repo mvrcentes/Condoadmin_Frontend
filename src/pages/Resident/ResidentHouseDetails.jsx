@@ -41,31 +41,35 @@ export const ResidentHouseDetails = ( {id} ) => {
         console.log(search)
     }
 
-    //se chequea si el search esta vacio, si lo esta se muestran todas las casas, si no, se filtran las casas que contengan el numero de casa que se esta buscando
     const generateResidentCards = () => {
-        if (search == "") {
-            return (
-                data.map((info) => (
-                        <Card key={info.code}>
-                            <h3 className={style.resName}>{info.nombre}</h3>
-                            <p className={style.CUI}>CUI: {info.cui}</p>
-                            <p className={style.phoneNum}>Tel: {info.telefono}</p>
-                            <p className={style.mail}>Mail: {info.correo}</p>
-                        </Card>
-                )))
+        if (search === "") {
+          return data.map((info) => (
+            <div key={info.code} className="bg-white shadow-lg rounded-lg overflow-hidden m-4 w-80">
+              <div className="p-4">
+                <h3 className="text-xl font-semibold text-gray-800">{info.nombre}</h3>
+                <p className="text-gray-600 mb-2">CUI: {info.cui}</p>
+                <p className="text-gray-600 mb-2">Tel: {info.telefono}</p>
+                <p className="text-gray-600">Mail: {info.correo}</p>
+              </div>
+            </div>
+          ));
         } else {
-            const arrayResidentesFiltrados = data.filter(objeto => objeto.nombre.toLowerCase().startsWith(search.toLowerCase()));
-            return (
-                arrayResidentesFiltrados.map((info) => (
-                    <Card key={info.code}>
-                            <h3 className={style.resName}>{info.nombre}</h3>
-                            <p className={style.CUI}>CUI: {info.cui}</p>
-                            <p className={style.phoneNum}>Tel: {info.telefono}</p>
-                            <p className={style.mail}>Mail: {info.correo}</p>
-                        </Card>
-                )))
+          const arrayResidentesFiltrados = data.filter((objeto) =>
+            objeto.nombre.toLowerCase().startsWith(search.toLowerCase())
+          );
+          return arrayResidentesFiltrados.map((info) => (
+            <div key={info.code} className="bg-white shadow-lg rounded-lg overflow-hidden m-4 w-80">
+              <div className="p-4">
+                <h3 className="text-xl font-semibold text-gray-800">{info.nombre}</h3>
+                <p className="text-gray-600 mb-2">CUI: {info.cui}</p>
+                <p className="text-gray-600 mb-2">Tel: {info.telefono}</p>
+                <p className="text-gray-600">Mail: {info.correo}</p>
+              </div>
+            </div>
+          ));
         }
-    }
+      };
+      
 
     //[{"num_casa":1,"cui":"1234567890123","nombre":"Andrés Quezada","telefono":"1234567890","correo":"residente1@example.com","tipo_residente":"Propietario"}]
     const valoresParaLosInputs = [
