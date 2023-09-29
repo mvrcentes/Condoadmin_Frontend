@@ -21,6 +21,7 @@ const NotFoundPage = () => {
         <p className="text-gray-600">
           El enlace que seguiste podría estar roto o la página puede haber sido eliminada.
         </p>
+        <a href="/login" className="text-blue-500 hover:underline block mt-4">Regresar al inicio de sesión</a>
       </div>
     </div>
   );
