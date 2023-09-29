@@ -21,7 +21,12 @@ const NotFoundPage = () => {
         <p className="text-gray-600">
           El enlace que seguiste podría estar roto o la página puede haber sido eliminada.
         </p>
-        <a href="/login" className="text-blue-500 hover:underline block mt-4">Regresar al inicio de sesión</a>
+        <a
+          href="/login"
+          className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-full block mt-4 text-center transition duration-300 ease-in-out"
+        >
+          Regresar al inicio de sesión
+        </a>
       </div>
     </div>
   );

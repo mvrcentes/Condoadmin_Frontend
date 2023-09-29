@@ -23,7 +23,7 @@ import { ResidentHouseDetails } from "./pages/Resident/ResidentHouseDetails"
 import Emergencies from "./pages/Resident/Emergencies"
 
 // login and signin
-import Login from "./pages/Authentication/LogIn"
+import Login from "./pages/Authentication/Login"
 
 import { BrowserRouter } from "react-router-dom"
 
