@@ -1,6 +1,6 @@
 import axios from "axios"
 
-const server = "http://condoadmin.azurewebsites.net/"
+const server = "http://condoadmin.azurewebsites.net"
 
 export const getHouses = async () => {
   try {
