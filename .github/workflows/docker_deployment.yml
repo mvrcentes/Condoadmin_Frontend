@@ -4,7 +4,7 @@ on:
   push:
     branches: [ "TestEnvironment" ]
     paths: 
-      - './**'  
+      - '/**'  
 jobs: 
   deploy:
     name: Docker build
