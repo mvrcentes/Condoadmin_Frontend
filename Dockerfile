@@ -10,4 +10,7 @@ COPY . .
 
 EXPOSE 4000 2222
 
-CMD ["npm", "run", "dev"]
+COPY sshd_config /etc/ssh/       
+COPY entrypoint.sh ./            
+
+CMD ["./entrypoint.sh"]
