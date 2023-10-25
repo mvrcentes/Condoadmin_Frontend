@@ -2,7 +2,7 @@ name: Docker website CI
 
 on:
   push:
-    branches: ["TestEnvironment"]
+    branches: ["master"]
     paths:
       - 'src/**'
 
@@ -20,7 +20,7 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
       - name: Build website image
         run: |
-          docker build --platform linux --tag mvrcentes/condoadminfront:latest -f Dockerfile .
+          docker build --platform linux --tag mvrcentes/condoadminfront:latest --no-cache -f Dockerfile .
       - name: Publish website image
         run: |
           docker push mvrcentes/condoadminfront:latest
