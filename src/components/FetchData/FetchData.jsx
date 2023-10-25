@@ -1,10 +1,15 @@
 import axios from "axios"
 
-const server = "http://condoadmin.azurewebsites.net"
+const axiosInstance = axios.create({
+  timeout: 1000,
+  headers: {
+    "Content-Type": "application/json",
+  }
+});
 
 export const getHouses = async () => {
   try {
-    return (await axios.get(`${server}/api/houses`)).data
+    return (await axiosInstance.get(`https://condoadmin.azurewebsites.net/api/houses`)).data
   } catch (error) {
     console.error(error)
   }
@@ -18,7 +23,7 @@ export const addHouse = async (
 ) => {
   try {
     return (
-      await axios.post(`${server}/api/houses/`, {
+      await axiosInstance.post(`https://condoadmin.azurewebsites.net/api/houses/`, {
         num_casa,
         direccion,
         condominio,
@@ -32,7 +37,7 @@ export const addHouse = async (
 
 export const getResidentsByHouseID = async (id) => {
   try {
-    return (await axios.get(`${server}/api/houses/${id}`)).data
+    return (await axiosInstance.get(`https://condoadmin.azurewebsites.net/api/houses/${id}`)).data
   } catch (error) {
     console.error(error)
   }
@@ -50,7 +55,7 @@ export const addResident = async (
 ) => {
   try {
     return (
-      await axios.post(`${server}/api/houses/${num_casa}`, {
+      await axiosInstance.post(`https://condoadmin.azurewebsites.net/api/houses/${num_casa}`, {
         num_casa,
         cui,
         nombre,
@@ -68,7 +73,7 @@ export const addResident = async (
 
 export const getEquipment = async () => {
   try {
-    return (await axios.get(`${server}/api/services`)).data
+    return (await axiosInstance.get(`https://condoadmin.azurewebsites.net/api/services`)).data
   } catch (error) {
     console.error({ error })
   }
@@ -77,7 +82,7 @@ export const getEquipment = async () => {
 export const addEquipment = async (nombre, descripcion, estado, condominio) => {
   try {
     return (
-      await axios.post(`${server}/api/services/`, {
+      await axiosInstance.post(`https://condoadmin.azurewebsites.net/api/services/`, {
         nombre,
         descripcion,
         estado,
@@ -91,7 +96,7 @@ export const addEquipment = async (nombre, descripcion, estado, condominio) => {
 
 export const getServicesByEquipmentID = async (id) => {
   try {
-    return (await axios.get(`${server}/api/services/${id}`)).data
+    return (await axiosInstance.get(`https://condoadmin.azurewebsites.net/api/services/${id}`)).data
   } catch (error) {
     console.error(error)
   }
@@ -100,7 +105,7 @@ export const getServicesByEquipmentID = async (id) => {
 export const addService = async (equipo, fecha, descripcion, estado, costo) => {
   try {
     return (
-      await axios.post(`${server}/api/services/${equipo}`, {
+      await axiosInstance.post(`https://condoadmin.azurewebsites.net/api/services/${equipo}`, {
         equipo,
         fecha,
         descripcion,
@@ -115,7 +120,7 @@ export const addService = async (equipo, fecha, descripcion, estado, costo) => {
 
 export const getComplaints = async () => {
   try {
-    return (await axios.get(`${server}/api/complaints`)).data
+    return (await axiosInstance.get(`https://condoadmin.azurewebsites.net/api/complaints`)).data
   } catch (error) {
     console.error(error)
   }
@@ -123,7 +128,7 @@ export const getComplaints = async () => {
 
 export const getComplaintsByID = async (id) => {
   try {
-    return (await axios.get(`${server}/api/complaints/${id}`)).data
+    return (await axiosInstance.get(`https://condoadmin.azurewebsites.net/api/complaints/${id}`)).data
   } catch (error) {
     console.error(error)
   }
@@ -138,7 +143,7 @@ export const addComplaint = async (
 ) => {
   try {
     return (
-      await axios.post(`${server}/api/complaints/`, {
+      await axiosInstance.post(`https://condoadmin.azurewebsites.net/api/complaints/`, {
         titulo,
         contenido,
         fecha,
@@ -153,7 +158,7 @@ export const addComplaint = async (
 
 export const getAnnouncements = async () => {
   try {
-    return (await axios.get(`${server}/api/announcements`)).data
+    return (await axiosInstance.get(`https://condoadmin.azurewebsites.net/api/announcements`)).data
   } catch (error) {
     console.error(error)
   }
@@ -162,7 +167,7 @@ export const getAnnouncements = async () => {
 export const getAnnouncementByID = async (id) => {
   console.log({ id })
   try {
-    return (await axios.get(`${server}/api/announcements/${id}`)).data
+    return (await axiosInstance.get(`https://condoadmin.azurewebsites.net/api/announcements/${id}`)).data
   } catch (error) {
     console.error(error)
   }
@@ -172,7 +177,7 @@ export const logIn = async (email, password) => {
 
   try {
     return (
-      await axios.post(`${server}/login`, {
+      await axiosInstance.post(`https://condoadmin.azurewebsites.net/login`, {
         email, password
       })
     ).data
