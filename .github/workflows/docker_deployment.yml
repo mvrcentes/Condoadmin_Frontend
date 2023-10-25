@@ -2,7 +2,7 @@ name: Docker website CI
 
 on:
   push:
-    branches: ["master"]
+    branches: ["TestEnvironment2"]
     paths:
       - 'src/**'
 
