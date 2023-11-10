@@ -4,6 +4,7 @@ import AdminView from "../../components/View/AdminView"
 import { Card } from "../../components/Card/Card"
 import { Header } from "../../components/Header/Header"
 import style from "./HouseDetails.module.css"
+import { FaSpinner } from 'react-icons/fa'
 import { getResidentsByHouseID, addResident } from "../../components/FetchData/FetchData"
 
 export const HouseDetails = () => {
@@ -113,7 +114,9 @@ export const HouseDetails = () => {
             />
             <div className={style.residentsContainer}>
                 {isLoading ? (
-                    <p>Loading...</p>
+                    <div className="flex justify-center items-center h-screen">
+                        <FaSpinner className="animate-spin text-blue-500 text-4xl" />
+                    </div>
                 ) : (
                     generateResidentCards()
                 )}

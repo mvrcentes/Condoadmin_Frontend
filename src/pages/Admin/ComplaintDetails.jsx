@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getComplaintsByID } from "../../components/FetchData/FetchData";
 import AdminView from "../../components/View/AdminView";
+import { FaSpinner } from 'react-icons/fa';
 
 export const ComplaintDetails = ( ) => {
   const { id } = useParams();
@@ -47,7 +48,9 @@ export const ComplaintDetails = ( ) => {
     <AdminView>
       <div className="container mx-auto p-4">
         {isLoading ? (
-          <p>Loading...</p>
+          <div className="flex justify-center items-center h-screen">
+            <FaSpinner className="animate-spin text-blue-500 text-4xl" />
+          </div>
         ) : (
           <div className="space-y-4">
             {generateServiceCards()}

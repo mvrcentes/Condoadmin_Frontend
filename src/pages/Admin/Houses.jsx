@@ -4,6 +4,7 @@ import { Card } from "../../components/Card/Card"
 import { Header } from "../../components/Header/Header"
 import style from "../../components/Card/Card.module.css"
 import { container } from "./Houses.module.css"
+import { FaSpinner } from 'react-icons/fa'
 import { getHouses, addHouse } from "../../components/FetchData/FetchData"
 
 export const Houses = () => {
@@ -92,7 +93,9 @@ export const Houses = () => {
             />
             <div className={container}>
                 {isLoading ? (
-                    <p>Loading...</p>
+                    <div className="flex justify-center items-center h-screen">
+                        <FaSpinner className="animate-spin text-blue-500 text-4xl" />
+                    </div>
                 ) : (
                     generateHouseCards()
                 )}
