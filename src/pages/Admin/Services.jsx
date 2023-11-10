@@ -4,6 +4,7 @@ import { Card } from "../../components/Card/Card"
 import { Header } from "../../components/Header/Header"
 import style from "../../components/Card/Card.module.css"
 import { servicesContainer } from "./Services.module.css"
+import { FaSpinner } from 'react-icons/fa'
 import { getEquipment, addEquipment } from "../../components/FetchData/FetchData"
 
 export const Services = () => {
@@ -96,7 +97,9 @@ export const Services = () => {
             />
             <div className={servicesContainer}>
                 {isLoading ? (
-                    <p>Loading...</p>
+                    <div className="flex justify-center items-center h-screen">
+                        <FaSpinner className="animate-spin text-blue-500 text-4xl" />
+                    </div>
                 ) : (
                         generateServicesCards()
                     )}
