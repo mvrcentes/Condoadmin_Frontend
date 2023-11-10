@@ -25,7 +25,7 @@ export const Complaints = ({ search, admin }) => {
   const generateComplaints = () => {
     if (search === "") {
       return (
-        <table className="table-auto w-full bg-blue-100">
+        <table className="table-auto w-full bg-white">
           <thead>
             <tr>
               <th className="px-4 py-2 text-left">Titulo</th>
