@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { getComplaints } from "../../components/FetchData/FetchData";
+import { FaSpinner } from 'react-icons/fa';
+
 
 export const Complaints = ({ search, admin }) => {
   const [complaints, setComplaints] = useState([]);
@@ -70,7 +72,9 @@ export const Complaints = ({ search, admin }) => {
 
         <div className="container mx-auto py-8">
           {isLoading ? (
-            <h1 className="text-2xl font-semibold text-center">Loading...</h1>
+            <div className="flex justify-center items-center h-screen">
+              <FaSpinner className="animate-spin text-blue-500 text-4xl" />
+            </div>
           ) : (
             <div className="overflow-x-auto">
               <table className="min-w-full bg-white border rounded-lg">
@@ -127,7 +131,9 @@ export const Complaints = ({ search, admin }) => {
         overflowX: "hidden",
       }
     }>
-      {isLoading ? <h1>Loading...</h1> : generateComplaints()}
+      {isLoading ? <div className="flex justify-center items-center h-screen">
+        <FaSpinner className="animate-spin text-blue-500 text-4xl" />
+      </div> : generateComplaints()}
     </div>
   );
 };

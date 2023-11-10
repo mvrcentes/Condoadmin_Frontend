@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { getAnnouncements } from "../../components/FetchData/FetchData";
+import { FaSpinner } from 'react-icons/fa';
+
 
 export const Annoucements = ({ admin }) => {
   const [announcements, setAnnouncements] = useState([]);
@@ -22,7 +24,11 @@ export const Annoucements = ({ admin }) => {
   }, []);
 
   if (isLoading) {
-    return <div className="text-center mt-4">Loading...</div>;
+    return (
+      <div className="flex justify-center items-center h-screen">
+        <FaSpinner className="animate-spin text-blue-500 text-4xl" />
+      </div>
+    );
   } else {
     return (
       <div className="mx-auto px-4 py-8" style={
