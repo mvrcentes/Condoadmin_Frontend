@@ -1,5 +1,5 @@
 import axios from "axios"
-const server = "http://127.0.0.1:4000"
+const server = "http://condoadmin.azurewebsites.net:4000"
 export const getHouses = async () => {
     try {
         return (await axios.get(`${server}/api/houses`)).data
