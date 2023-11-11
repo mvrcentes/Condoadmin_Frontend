@@ -68,9 +68,7 @@ export const ServiceDetails = () => {
         }
     }
 
-    //[{"num_casa":1,"cui":"1234567890123","nombre":"Andrés Quezada","telefono":"1234567890","correo":"residente1@example.com","tipo_residente":"Propietario"}]
     const valoresParaLosInputs = [
-        // {type: "number", name: "equipo", placeholder: " 12345 ", title: "ID Equipo a mantener"},
         {type: "text", name: "fecha", placeholder: "2023-06-01", title: "Fecha"},
         {type: "text", name: "descripcion", placeholder: " Limpieza de piscina ", title: "Descripción"},
         {type: "text", name: "estado", placeholder: " Completado/Pendiente ", title: "Estado"},
