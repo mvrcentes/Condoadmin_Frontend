@@ -43,7 +43,7 @@ export const NewView = () => {
     }, [])
 
     if (isLoading) {
-        return <div>Loading...</div>
+        // return <div>Loading...</div>
     }
 
     return (
@@ -57,14 +57,14 @@ export const NewView = () => {
             </div>
             <div className="text-gray-800">{announce.contenido}</div>
             <div className="mt-4">
-                <div className="text-gray-700 font-semibold">Comentarios:</div>
+                {/* <div className="text-gray-700 font-semibold">Comentarios:</div>
                 <div className="mt-2">
                     <input
                         className="w-full bg-gray-200 rounded-md p-2 focus:outline-none focus:ring focus:border-blue-300"
                         type="text"
                         placeholder="Escribe un comentario..."
                     />
-                </div>
+                </div> */}
             </div>
             {/* Renderizar comentarios */}
             {/* {comments.map((item, index) => (

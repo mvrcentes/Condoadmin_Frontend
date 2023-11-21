@@ -33,7 +33,7 @@ export const Complaints = ({ search, admin }) => {
               <th className="px-4 py-2 text-left">Titulo</th>
               <th className="px-4 py-2 text-left">Residente</th>
               <th className="px-4 py-2 text-left">Fecha</th>
-              <th className="px-4 py-2 text-left">Upvotes</th>
+              {/* <th className="px-4 py-2 text-left">Upvotes</th> */}
             </tr>
           </thead>
           <tbody>
@@ -58,7 +58,7 @@ export const Complaints = ({ search, admin }) => {
                 </td>
                 <td className="border px-4 py-2">{complaint.residente}</td>
                 <td className="border px-4 py-2">{complaint.fecha}</td>
-                <td className="border px-4 py-2">{complaint.upvotes}</td>
+                {/* <td className="border px-4 py-2">{complaint.upvotes}</td> */}
               </tr>
             ))}
           </tbody>

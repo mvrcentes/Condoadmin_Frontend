@@ -34,8 +34,8 @@ export const ComplaintDetails = ( ) => {
         <p className="text-gray-700 mb-4">{info.contenido}</p>
         <div className="flex space-x-4">
           <div className="text-sm text-gray-600">Fecha: {info.fecha}</div>
-          <div className="text-sm text-gray-600">Upvotes: {info.upvotes}</div>
-          <div className="text-sm text-gray-600">Downvotes: {info.downvotes}</div>
+          {/* <div className="text-sm text-gray-600">Upvotes: {info.upvotes}</div> */}
+          {/* <div className="text-sm text-gray-600">Downvotes: {info.downvotes}</div> */}
           <div className="text-sm text-gray-600">Autor: {info.autor}</div>
         </div>
       </div>

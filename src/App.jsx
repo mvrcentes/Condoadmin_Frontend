@@ -62,7 +62,7 @@ function App() {
                 <Route path="/admin/services" element={<Services />} />
                 <Route path="/admin/houses" element={<Houses />} />
                 <Route path="/admin/house/:id" element={<HouseDetails />} />
-                <Route path="/admin/announce" element={<Announcement admin={token.user.user_metadata.admin}/>} />
+                <Route path="/admin/announce" element={<Announcement admin={token.user.user_metadata.admin} email={token.user.email}/>} />
                 <Route path="/admin/announce/:id" element={<AnnoucementByID admin={token.user.user_metadata.admin}/>} />
                 <Route path="/admin/complaints" element={<Complaint admin={token.user.user_metadata.admin}/>} />
                 <Route path="/admin/complaints/:id" element={<ComplaintDetails />} />

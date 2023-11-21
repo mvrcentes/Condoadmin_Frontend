@@ -11,12 +11,10 @@ export const AnnoucementByID = ({ admin }) => {
     <>
       {admin ? (
         <AdminView>
-          <Header />
           <NewView />
         </AdminView>
       ) : (
         <ResidentView>
-          <Header />
           <NewView />
         </ResidentView>
       )}
