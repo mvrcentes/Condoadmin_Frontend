@@ -176,7 +176,7 @@ export const addHouse = async (
                 
                 try {
                     return (
-                        await axiosInstance.post(`https://condoadmin.azurewebsites.net/login`, {
+                        await axiosInstance.post(`https://condoadmin.azurewebsites.net/api/login`, {
                         email, password
                     })
                     ).data
